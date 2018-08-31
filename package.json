@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/gelory1/vue-gulu/issues"
   },
-  "homepage": "https://github.com/gelory1/vue-gulu#readme"
+  "homepage": "https://github.com/gelory1/vue-gulu#readme",
+  "dependencies": {
+    "vue": "^2.5.17"
+  }
 }
