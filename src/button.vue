@@ -1,7 +1,11 @@
 <template>
-    <button class="g-button" :class="`icon-${iconPosition}`">
-        <g-icon v-if="icon" :name="icon"></g-icon>
-        <slot></slot>
+    <button class="g-button" :class="`icon-${iconPosition}`" @click="onClickBtn">
+        <g-icon v-if="icon && loadingSta" name="loading" class="loading"></g-icon>
+        <g-icon v-if="icon && !loadingSta" :name="icon" class="icon notLoading"></g-icon>
+        <div class="content">
+            <slot></slot>
+        </div>
+
     </button>
 
 </template>
@@ -14,9 +18,32 @@
                 default: 'left',
                 validator(value){
                     return value === 'left' || value === 'right';
-
                 }
             }
+        },
+        data(){
+            return{
+                loadingSta: false
+            }
+        },
+        methods:{
+            onClickBtn(){
+                this.loadingSta = !this.loadingSta
+            }
+        },
+        updated(){
+
+//            let notLoading = this.$el.querySelector('.notLoading')
+//            let loading = this.$el.querySelector('.loading')
+//            console.log(loading);
+//            if(this.loadingSta){
+//                console.log(1);
+//                this.$el.replaceChild(loading,notLoading)
+//            }else{
+//                console.log(2);
+//                this.$el.replaceChild(notLoading,loading)
+//                console.log(3);
+//            }
         }
     }
 </script>
@@ -47,9 +74,15 @@
         margin-left: .3em;
         margin-right: 0;
     }
+    .icon-right .content{
+        order:1;
+    }
     .icon-left .icon{
-        order:2;
+        order:1;
         margin-left: 0;
         margin-right: .3em;
+    }
+    .icon-left .content{
+        order:2;
     }
 </style>
