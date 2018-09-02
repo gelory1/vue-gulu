@@ -30,22 +30,7 @@
             onClickBtn(){
                 this.loadingSta = !this.loadingSta
             }
-        },
-        updated(){
-
-//            let notLoading = this.$el.querySelector('.notLoading')
-//            let loading = this.$el.querySelector('.loading')
-//            console.log(loading);
-//            if(this.loadingSta){
-//                console.log(1);
-//                this.$el.replaceChild(loading,notLoading)
-//            }else{
-//                console.log(2);
-//                this.$el.replaceChild(notLoading,loading)
-//                console.log(3);
-//            }
         }
-    }
 </script>
 <style>
     .g-button{
@@ -85,4 +70,5 @@
     .icon-left .content{
         order:2;
     }
+
 </style>
