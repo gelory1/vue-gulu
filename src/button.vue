@@ -1,6 +1,6 @@
 <template>
     <button class="g-button" :class="`icon-${iconPosition}`" @click="onClickBtn">
-        <g-icon v-if="icon && loadingSta" name="loading" class="loading"></g-icon>
+        <g-icon v-if="loadingSta" name="loading"></g-icon>
         <g-icon v-if="icon && !loadingSta" :name="icon" class="icon notLoading"></g-icon>
         <div class="content">
             <slot></slot>
@@ -11,10 +11,10 @@
 </template>
 <script>
     export default {
-        props:{
-            icon:{},
-            iconPosition:{
-                type:String,
+        props: {
+            icon: {},
+            iconPosition: {
+                type: String,
                 default: 'left',
                 validator(value){
                     return value === 'left' || value === 'right';
@@ -22,15 +22,16 @@
             }
         },
         data(){
-            return{
+            return {
                 loadingSta: false
             }
         },
-        methods:{
+        methods: {
             onClickBtn(){
                 this.loadingSta = !this.loadingSta
             }
-        }
+        },
+    }
 </script>
 <style>
     .g-button{
